@@ -5,7 +5,8 @@
 
 'use strict';
 
-var react = typeof window === 'undefined' ? require('react') : window.React;
+var react = typeof window === 'undefined' || !window.React ? require('react') : window.React;
+window.React = react;
 var utils = require('../orb.utils');
 var axe = require('../orb.axe');
 var uiheaders = require('../orb.ui.header');
@@ -802,7 +803,7 @@ module.exports.PivotCell = react.createClass({
                 value = cell.value.caption;
                 break;
             case 'cell-template-datavalue':
-                value = (cell.datafield && cell.datafield.formatFunc) ? cell.datafield.formatFunc()(cell.value) : cell.value;
+                value = (cell.datafield && cell.datafield.formatFunc) ? cell.datafield.formatFunc()(cell) : cell.value;
                 cellClick = function() {
                     self.props.pivotTableComp.pgridwidget.drilldown(cell, self.props.pivotTableComp.id);
                 };
