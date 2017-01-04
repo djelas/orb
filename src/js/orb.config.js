@@ -146,7 +146,8 @@ var Field = module.exports.field = function(options, createSubOptions) {
     var _aggregatefunc;
     var _formatfunc;
 
-    function defaultFormatFunc(val) {   
+    function defaultFormatFunc(cell) {
+        var val = cell.value;
         return val != null ? val.toString() : '';
     }
 
