@@ -170,7 +170,7 @@ module.exports = function(config) {
         }
     };
     
-    this.destroy() {
+    this.destroy = function() {
         var container = this.getDOMNode().parentNode;
         React.unmountComponentAtNode(container);
     }
