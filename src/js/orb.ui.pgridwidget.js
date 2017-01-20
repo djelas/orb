@@ -169,6 +169,11 @@ module.exports = function(config) {
             pivotComponent = React.render(pivottable, element);
         }
     };
+    
+    this.destroy() {
+        var container = this.getDOMNode().parentNode;
+        React.unmountComponentAtNode(container);
+    }
 
     this.drilldown = function(dataCell, pivotId) {
         if(dataCell) {
