@@ -173,7 +173,7 @@ module.exports = function(config) {
     this.destroy = function() {
         var container = this.getDOMNode().parentNode;
         React.unmountComponentAtNode(container);
-    }
+    };
 
     this.drilldown = function(dataCell, pivotId) {
         if(dataCell) {
