@@ -129,8 +129,8 @@ var docFooter = '</body></html>';
  			}, '');
  			var dataRow = pgridwidget.dataRows[i];
  			rowStr += dataRow.reduce(function(tr, dataCell, index) {
- 				var formatFunc = config.dataFields[index = index % config.dataFields.length].formatFunc;
- 				var value = dataCell.value == null ? '' : formatFunc ? formatFunc()(dataCell.value) : dataCell.value;
+ 				var formatFunc = config.dataFields[index = index % config.dataFields.length].exportFormatFunc;
+ 				var value = dataCell.value == null ? '' : formatFunc ? formatFunc()(dataCell) : dataCell.value;
  				return (tr += '<td>' + value + '</td>');
  			}, '');
  			str += rowStr + '</tr>';
